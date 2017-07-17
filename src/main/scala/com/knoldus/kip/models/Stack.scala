@@ -1,7 +1,18 @@
 package com.knoldus.kip.models
 
 trait Stack[Int] {
-  val stackWithList : List[Int]
-  def pop: Int = ???
-  def push: Int = ??? //returns the top after pushing the element on the stack
+  val stackWithList: List[Int]
+
+  def pop: List[Int] = {
+    if (stackWithList.isEmpty) {
+      throw new RuntimeException
+    }
+    else {
+      stackWithList.tail
+    }
+  }
+
+  def push(x: Int): List[Int] = {
+    x :: stackWithList
+  }
 }
